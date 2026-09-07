@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import android.widget.Toast
 import androidx.core.view.WindowInsetsCompat
 
 class RegistroActivity : AppCompatActivity() {
@@ -22,6 +23,7 @@ class RegistroActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
         val campoNombre = findViewById<EditText>(R.id.inputNombre1)
         val campoApellido = findViewById<EditText>(R.id.apellido1)
         val campoDireccion = findViewById<EditText>(R.id.editTextText4)
@@ -29,12 +31,15 @@ class RegistroActivity : AppCompatActivity() {
         val campoEdad = findViewById<EditText>(R.id.editTextNumber)
         val campoTelefono = findViewById<EditText>(R.id.editTextPhone)
         val campoCorreo = findViewById<EditText>(R.id.correo)
-        val campoPass = findViewById<EditText>(R.id.passwrd)
+        val campoPass = findViewById<EditText>(R.id.editTextTextPassword2)
         val btnValidar = findViewById<Button>(R.id.btnCrearr)
         val grupoGenero = findViewById<RadioGroup>(R.id.generoID)
 
         btnValidar.setOnClickListener {
+            if (campoNombre.text.toString().isEmpty() || campoCorreo.text.toString().isEmpty() || campoPass.text.toString().isEmpty()) {
+                Toast.makeText(this, "datos vacíos", Toast.LENGTH_SHORT).show()
 
+            } else {
             val preferencias = getSharedPreferences("DatosUsuario", Context.MODE_PRIVATE)
             val editor = preferencias.edit()
             val nombreIngresado = campoNombre.text.toString()
@@ -57,6 +62,7 @@ class RegistroActivity : AppCompatActivity() {
             editor.apply()
             val intentVolver = Intent(this, LoginActivity::class.java)
             startActivity(intentVolver)
+            }
         }
     }
 }

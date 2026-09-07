@@ -31,17 +31,24 @@ class LoginActivity : AppCompatActivity() {
         }
 
         botonIngresar.setOnClickListener {
+            val usuarioEscrito = inputUsuarioLogin.text.toString()
+            val passEscrita = inputPassLogin.text.toString()
+
+            if (usuarioEscrito.isEmpty() || passEscrita.isEmpty()) {
+
+                Toast.makeText(this, "ingrese usuario y contraseña", Toast.LENGTH_SHORT).show()
+
+            } else {
+
             val preferencias = getSharedPreferences("DatosUsuario", Context.MODE_PRIVATE)
             val usuarioGuardado = preferencias.getString("Usuario", "")
             val passGuardada = preferencias.getString("Contrasena", "")
-            val usuarioEscrito = inputUsuarioLogin.text.toString()
-            val passEscrita = inputPassLogin.text.toString()
             if (usuarioEscrito == usuarioGuardado && passEscrita == passGuardada) {
                 val intentBienvenida = Intent(this, Bienvenida::class.java)
                 startActivity(intentBienvenida)
-
             } else {
-                Toast.makeText(this, "Datos incorrectos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Datos erróneos", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
