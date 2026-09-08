@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (usuarioEscrito.equals(usuarioGuardado) && passEscrita.equals(passGuardada)) {
                     Intent intent = new Intent(LoginActivity.this, Bienvenida.class);
-                    intent.putExtra("CORREO_ENVIADO", usuarioEscrito);
+                    intent.putExtra("Correo enviado", usuarioEscrito);
                     startActivity(intent);
                 } else {
                     Toast.makeText(LoginActivity.this, "Datos erróneos", Toast.LENGTH_SHORT).show();
