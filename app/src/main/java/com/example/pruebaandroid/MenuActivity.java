@@ -51,7 +51,7 @@ public class MenuActivity extends AppCompatActivity {
                 progreso += 25;
                 miCheck.setError(null);
             } else {
-                miCheck.setError("Debes confirmar tus datos");
+                miCheck.setError("Debe confirmar los datos");
             }
 
             if (grupoOpciones.getCheckedRadioButtonId() != -1) {

@@ -16,6 +16,9 @@
     <string name="menu">Ir al menú</string>
     <string name="confirmarVal">Confirmar</string>
     <string name="validarr">Validar</string>
+    <string name="talkts">Hablar</string>
+    <string name="chip">Chip</string>
+
 
 
 </resources>
